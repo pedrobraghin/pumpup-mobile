@@ -4,5 +4,14 @@
     "left_button_title": "Anterior"
   },
   "welcome": {
+  },
+  "home": {
+    "header_description": "Olá {{username}}, bem vindo ao seu Dashboard!",
+    "header_title": "Dashboard",
+    "tip_1": "Você ainda não possui nenhum treino",
+    "tip_2": " Clique no botão abaixo para adicionar um novo treino"
+  },
+  "search_exercise": {
+    "placeholder": "Pesquise por um exercício"
   }
 }

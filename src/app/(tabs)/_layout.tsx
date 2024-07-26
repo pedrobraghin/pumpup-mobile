@@ -1,51 +1,44 @@
 import React from 'react';
-import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { Link, Tabs } from 'expo-router';
-import { Pressable } from 'react-native';
+import IoIcons from '@expo/vector-icons/Ionicons'
+import Octicons from '@expo/vector-icons/Octicons'
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
-// You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
-function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>['name'];
-  color: string;
-}) {
-  return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
-}
+import { Tabs } from 'expo-router';
+import Colors from '@/constants/Colors';
 
 export default function TabLayout() {
-
   return (
     <Tabs
       screenOptions={{
-        // Disable the static render of the header on web
-        // to prevent a hydration error in React Navigation v6.
         headerShown: false,
-      }}>
+        tabBarStyle: {
+          height: 100,
+          backgroundColor: Colors.black,
+          paddingTop: 16,
+          paddingBottom: 16
+        },
+        tabBarActiveTintColor: Colors.mainColor,
+
+      }} >
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-          headerRight: () => (
-            <Link href="/modal" asChild>
-              <Pressable>
-                {({ pressed }) => (
-                  <FontAwesome
-                    name="info-circle"
-                    size={25}
-                    color="red"
-                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-                  />
-                )}
-              </Pressable>
-            </Link>
-          ),
+          title: 'Início',
+          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="arm-flex-outline" color={color} size={32} />,
         }}
       />
       <Tabs.Screen
-        name="two"
+        name="statistics"
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'Estatísticas',
+          tabBarIcon: ({ color }) => <Octicons name="graph" color={color} size={28} />,
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: 'Perfil',
+          tabBarIcon: ({ color }) => <IoIcons name="person-circle-outline" color={color} size={32} />,
         }}
       />
     </Tabs>
