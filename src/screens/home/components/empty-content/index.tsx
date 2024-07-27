@@ -10,7 +10,7 @@ export function EmptyContent() {
   const router = useRouter();
 
   function redirectToCreateTraining() {
-    router.push(Routes.searchExercise);
+    router.push(Routes.createTrain);
   }
 
   return (

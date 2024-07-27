@@ -13,5 +13,19 @@
   },
   "search_exercise": {
     "placeholder": "Pesquise por um exercício"
+  },
+  "create_train": {
+    "placeholder": "ex: treino de peito e tríceps",
+    "page_title": "Novo treino",
+    "input_label": "Nome",
+    "weekday": "Dia da semana",
+    "monday": "Seg.",
+    "tuesday": "Ter.",
+    "wednesday": "Qua.",
+    "thursday": "Qui.",
+    "friday": "Sex.",
+    "saturday": "Sab.",
+    "sunday": "Dom.",
+    "primary_button": "Continuar"
   }
 }

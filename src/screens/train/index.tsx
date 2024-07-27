@@ -5,7 +5,7 @@ export function TrainingScreen() {
   return (
     <View style={styles.container}>
       <Text>
-        Treinando...
+
       </Text>
     </View>
   )
