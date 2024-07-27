@@ -1,46 +1,49 @@
-import React from 'react';
+import React from 'react'
 import IoIcons from '@expo/vector-icons/Ionicons'
 import Octicons from '@expo/vector-icons/Octicons'
-import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons'
 
-import { Tabs } from 'expo-router';
-import Colors from '@/constants/Colors';
+import { Tabs } from 'expo-router'
+import Colors from '@/constants/Colors'
+import { useTranslation } from 'react-i18next'
 
 export default function TabLayout() {
+  const { t } = useTranslation()
+
   return (
     <Tabs
       screenOptions={{
         headerShown: false,
         tabBarStyle: {
-          height: 100,
+          height: 50,
           backgroundColor: Colors.black,
-          paddingTop: 16,
-          paddingBottom: 16
+          paddingTop: 8,
+          paddingBottom: 8,
         },
         tabBarActiveTintColor: Colors.mainColor,
-
+        tabBarShowLabel: false,
       }} >
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Início',
-          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="arm-flex-outline" color={color} size={32} />,
+          tabBarAccessibilityLabel: t('icon_1_label'),
+          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="arm-flex-outline" color={color} size={28} />,
         }}
       />
       <Tabs.Screen
         name="statistics"
         options={{
-          title: 'Estatísticas',
-          tabBarIcon: ({ color }) => <Octicons name="graph" color={color} size={28} />,
+          tabBarAccessibilityLabel: t('icon_2_label'),
+          tabBarIcon: ({ color }) => <Octicons name="graph" color={color} size={24} />,
         }}
       />
       <Tabs.Screen
         name="profile"
         options={{
-          title: 'Perfil',
-          tabBarIcon: ({ color }) => <IoIcons name="person-circle-outline" color={color} size={32} />,
+          tabBarAccessibilityLabel: t('icon_3_label'),
+          tabBarIcon: ({ color }) => <IoIcons name="person-circle-outline" color={color} size={28} />,
         }}
       />
     </Tabs>
-  );
+  )
 }

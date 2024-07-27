@@ -5,3 +5,5 @@ export * from "./search-bar";
 export * from "./input";
 export * from "./primary-button";
 export * from "./weekday-selector";
+export * from "./header";
+export * from "./safe-view";

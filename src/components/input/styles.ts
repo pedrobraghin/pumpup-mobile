@@ -21,4 +21,8 @@ export const styles = StyleSheet.create({
     padding: 16,
     fontSize: 12,
   },
+  errorMessage: {
+    color: Colors.error,
+    letterSpacing: 1,
+  },
 });

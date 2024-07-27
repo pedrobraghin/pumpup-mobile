@@ -17,4 +17,9 @@ export const styles = StyleSheet.create({
     fontSize: 16,
     color: Colors.white,
   },
+  errorMessage: {
+    color: Colors.error,
+    letterSpacing: 1,
+    marginTop: 6,
+  },
 });

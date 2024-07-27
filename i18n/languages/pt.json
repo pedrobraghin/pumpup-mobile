@@ -5,6 +5,11 @@
   },
   "welcome": {
   },
+  "tab_bar": {
+    "icon_1_label": "Início",
+    "icon_2_label": "Estatísticas",
+    "icon_3_label": "Perfil"
+  },
   "home": {
     "header_description": "Olá {{username}}, bem vindo ao seu Dashboard!",
     "header_title": "Dashboard",
@@ -26,6 +31,8 @@
     "friday": "Sex.",
     "saturday": "Sab.",
     "sunday": "Dom.",
-    "primary_button": "Continuar"
+    "primary_button": "Continuar",
+    "input_error_message": "Esse campo é obrigatório",
+    "weekday_selector_error_message": "É necessário selecionar um dia da semana"
   }
 }
