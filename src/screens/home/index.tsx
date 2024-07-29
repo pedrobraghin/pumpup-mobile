@@ -1,12 +1,17 @@
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { Header, EmptyContent } from './components';
-import { styles } from './styles';
+import { View } from 'react-native'
+import { Header, NewTraining, Trainings } from './components'
+import { SafeScrollView } from '@/components'
+import { styles } from './styles'
 
 export function HomeScreen() {
   return (
-    <SafeAreaView style={styles.container}>
-      <Header username='Pedro Braghin' profileImage={"https://github.com/pedrobraghin.png"} />
-      <EmptyContent />
-    </SafeAreaView>
+    <SafeScrollView>
+      <View style={styles.container}>
+        <Header username='Pedro Braghin' profileImage={"https://github.com/pedrobraghin.png"} />
+        {/* <EmptyContent /> */}
+        <NewTraining />
+        <Trainings />
+      </View>
+    </SafeScrollView>
   )
 }

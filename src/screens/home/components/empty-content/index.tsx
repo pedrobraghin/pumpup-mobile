@@ -11,7 +11,7 @@ export function EmptyContent() {
   const router = useRouter()
 
   const redirectToCreateTraining = useCallback(() => {
-    router.push(Routes.createTrain)
+    router.push(Routes.createTraining)
   }, [])
 
   return (

@@ -5,9 +5,10 @@ import { Input, PrimaryButton, SafeView, WeekdaySelector } from '@/components'
 
 import { styles } from './styles'
 import { errorsInitialState, errorsReducer, validate, ErrorsActions } from './utils'
+import { mappedWeekdays } from '@/components/weekday-selector/consts'
 
-export function CreateTrainScreen() {
-  const { t } = useTranslation('create_train')
+export function CreateTrainingScreen() {
+  const { t } = useTranslation('create_training')
 
   const [errors, dispatch] = useReducer(errorsReducer, errorsInitialState)
   const [weekday, setWeekday] = useState<string>('')
@@ -22,6 +23,7 @@ export function CreateTrainScreen() {
       return dispatch({ type: ErrorsActions.SET_ERRORS, payload: validationResult })
     }
 
+    const day = mappedWeekdays[weekday];
     // to-do call api
   }, [weekday, name])
 

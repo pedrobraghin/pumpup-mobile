@@ -11,7 +11,7 @@ export function WeekdaySelector({
   error,
   hasError,
 }: Readonly<WeekdaySelectorProps>) {
-  const { t } = useTranslation('create_train')
+  const { t } = useTranslation('create_training')
 
   const [weekday, setWeekday] = useState<Weekday | ''>('')
 

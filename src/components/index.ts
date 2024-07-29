@@ -7,3 +7,4 @@ export * from "./primary-button";
 export * from "./weekday-selector";
 export * from "./header";
 export * from "./safe-view";
+export * from "./safe-scroll-view";

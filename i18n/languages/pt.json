@@ -14,12 +14,30 @@
     "header_description": "Olá {{username}}, bem vindo ao seu Dashboard!",
     "header_title": "Dashboard",
     "tip_1": "Você ainda não possui nenhum treino",
-    "tip_2": " Clique no botão abaixo para adicionar um novo treino"
+    "tip_2": " Clique no botão abaixo para adicionar um novo treino",
+    "new_training": {
+      "label": "Adicionar novo treino",
+      "button_text": "Iniciar um treino agora"
+    },
+    "label_1": "Treino de hoje",
+    "label_2": "Todos os treinos",
+    "start": "Começar",
+    "exercises": "{{count}} exercícios - ",
+    "tomorrow": "Amanhã",
+    "today": "Hoje",
+    "monday": "Segunda",
+    "tuesday": "Terça",
+    "wednesday": "Quarta",
+    "thursday": "Quinta",
+    "friday": "Sexta",
+    "saturday": "Sábado",
+    "sunday": "Domingo"
   },
   "search_exercise": {
-    "placeholder": "Pesquise por um exercício"
+    "placeholder": "Pesquise por um exercício",
+    "continue": "Continuar"
   },
-  "create_train": {
+  "create_training": {
     "placeholder": "ex: treino de peito e tríceps",
     "page_title": "Novo treino",
     "input_label": "Nome",
