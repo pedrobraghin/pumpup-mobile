@@ -3,6 +3,6 @@ export * from "./profile";
 export * from "./statistics";
 export * from "./welcome";
 export * from "./search-exercise";
-export * from "./train";
+export * from "./training";
 export * from "./authentication";
-export * from "./create-train";
+export * from "./create-training";

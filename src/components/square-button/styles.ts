@@ -6,22 +6,17 @@ export const styles = StyleSheet.create({
     backgroundColor: Colors.mainColor,
     justifyContent: "center",
     alignItems: "center",
-    height: 52,
-    borderRadius: 10,
+    borderRadius: 4,
+    flexDirection: "row",
+    gap: 6,
+    paddingHorizontal: 16,
+    paddingVertical: 6,
+    maxHeight: 30,
   },
   buttonText: {
     color: Colors.black,
-    fontWeight: "900",
-    fontSize: 18,
-  },
-  mediumText: {
-    fontSize: 16,
-  },
-  mediumContainer: {
-    height: 38,
-    borderRadius: 6,
-  },
-  disabledContainer: {
-    opacity: 0.6,
+    fontWeight: "bold",
+    fontSize: 14,
+    letterSpacing: 1,
   },
 });

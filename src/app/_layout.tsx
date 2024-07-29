@@ -56,7 +56,7 @@ function RootLayoutNav() {
         <Stack.Screen name="authentication" />
         <Stack.Screen name="search-exercise" />
         <Stack.Screen name="training" />
-        <Stack.Screen name="create-train" />
+        <Stack.Screen name="create-training" />
       </Stack>
     </ThemeProvider>
   )
