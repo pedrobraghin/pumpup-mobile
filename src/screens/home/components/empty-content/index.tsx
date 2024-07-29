@@ -1,17 +1,18 @@
-import { Text, View } from 'react-native';
-import { styles } from './styles';
-import { useTranslation } from 'react-i18next';
-import { CircleButton } from '@/components';
-import { useRouter } from 'expo-router';
-import { Routes } from '@/@types/routes';
+import { Text, View } from 'react-native'
+import { styles } from './styles'
+import { useTranslation } from 'react-i18next'
+import { CircleButton } from '@/components'
+import { useRouter } from 'expo-router'
+import { Routes } from '@/@types/routes'
+import { useCallback } from 'react'
 
 export function EmptyContent() {
-  const { t } = useTranslation('home');
-  const router = useRouter();
+  const { t } = useTranslation('home')
+  const router = useRouter()
 
-  function redirectToCreateTraining() {
-    router.push(Routes.searchExercise);
-  }
+  const redirectToCreateTraining = useCallback(() => {
+    router.push(Routes.createTrain)
+  }, [])
 
   return (
     <View style={styles.contentContainer}>

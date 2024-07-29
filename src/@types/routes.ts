@@ -3,4 +3,5 @@ export enum Routes {
   home = "(tabs)/index",
   profile = "(tabs)/profile",
   statistics = "(tabs)/statistics",
+  createTrain = "create-train",
 }
