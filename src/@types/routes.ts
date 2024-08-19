@@ -4,4 +4,5 @@ export enum Routes {
   profile = "(tabs)/profile",
   statistics = "(tabs)/statistics",
   createTraining = "create-training",
+  training = "training",
 }
