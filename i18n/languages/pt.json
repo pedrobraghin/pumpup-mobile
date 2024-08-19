@@ -52,5 +52,33 @@
     "primary_button": "Continuar",
     "input_error_message": "Esse campo é obrigatório",
     "weekday_selector_error_message": "É necessário selecionar um dia da semana"
+  },
+  "training": {
+    "exercise": {
+      "header": {
+        "button_text": "Série"
+      },
+      "serie_header": {
+        "col_1": "Série",
+        "col_2": "Tipo",
+        "col_3": "Ant. (Kg)",
+        "col_4": "Peso (Kg)",
+        "col_5": "Reps.",
+        "col_6": "Finalizar"
+      },
+      "types": {
+        "type_1": "Aquecimento",
+        "type_2": "Trabalho",
+        "type_3": "Drop set",
+        "type_4": "Falha",
+        "type_5": "Outros"
+      },
+      "serie": {
+        "foreground_label": "Deletar"
+      }
+    },
+    "timer": {
+      "label": "Tempo de descanse: {{time}}"
+    }
   }
 }
