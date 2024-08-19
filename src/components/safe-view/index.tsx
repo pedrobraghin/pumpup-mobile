@@ -2,7 +2,7 @@ import { SafeViewProps } from './types'
 import { Header } from '../header'
 import { styles } from './styles'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { View } from 'react-native'
+import { KeyboardAvoidingView, Platform, View } from 'react-native'
 
 export function SafeView({
   children,
@@ -12,11 +12,15 @@ export function SafeView({
 
   return (
     <SafeAreaView style={styles.container}>
-      {showHeader && <Header {...headerProps} />}
-
-      <View style={styles.contentContainer}>
-        {children}
-      </View>
+      <KeyboardAvoidingView
+        style={{ flex: 1, }}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      >
+        {showHeader && <Header {...headerProps} />}
+        <View style={styles.contentContainer}>
+          {children}
+        </View>
+      </KeyboardAvoidingView>
     </SafeAreaView>
   )
 }

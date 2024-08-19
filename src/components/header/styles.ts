@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     gap: 8,
     height: 55,
-    paddingHorizontal: 26,
+    paddingHorizontal: 16,
   },
   title: {
     color: Colors.white,
