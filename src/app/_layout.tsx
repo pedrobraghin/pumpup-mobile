@@ -7,6 +7,7 @@ import { useFonts } from 'expo-font'
 import { Stack } from 'expo-router'
 import * as SplashScreen from 'expo-splash-screen'
 import { useEffect } from 'react'
+import { GestureHandlerRootView } from 'react-native-gesture-handler'
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -47,17 +48,19 @@ export default function RootLayout() {
 
 function RootLayoutNav() {
   return (
-    <ThemeProvider value={DefaultTheme}>
-      <Stack screenOptions={{
-        headerShown: false,
-        statusBarTranslucent: true,
-      }}>
-        <Stack.Screen name="(tabs)" />
-        <Stack.Screen name="authentication" />
-        <Stack.Screen name="search-exercise" />
-        <Stack.Screen name="training" />
-        <Stack.Screen name="create-training" />
-      </Stack>
-    </ThemeProvider>
+    <GestureHandlerRootView>
+      <ThemeProvider value={DefaultTheme}>
+        <Stack screenOptions={{
+          headerShown: false,
+          statusBarTranslucent: true,
+        }}>
+          <Stack.Screen name="(tabs)" />
+          <Stack.Screen name="authentication" />
+          <Stack.Screen name="search-exercise" />
+          <Stack.Screen name="training" />
+          <Stack.Screen name="create-training" />
+        </Stack>
+      </ThemeProvider>
+    </GestureHandlerRootView>
   )
 }

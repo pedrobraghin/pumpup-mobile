@@ -1,4 +1,4 @@
-import { Alert, GestureResponderEvent, Image, Text, TouchableOpacity, View } from 'react-native';
+import { Image, Text, TouchableOpacity, View } from 'react-native';
 import { styles } from './styles';
 import { useTranslation } from 'react-i18next';
 import { PrimaryButton } from '@/components';

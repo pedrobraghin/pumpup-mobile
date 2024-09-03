@@ -15,6 +15,10 @@ export function NewTraining() {
     router.push(Routes.createTraining)
   }, [])
 
+  const handleStartTrainingNow = useCallback(() => {
+    router.push(Routes.training)
+  }, [])
+
   return (
     <View style={styles.container}>
       <View style={styles.addTrainingContainer}>
@@ -24,7 +28,7 @@ export function NewTraining() {
         <SquareButton iconName='plus' onPress={handleAddNewTraining} />
       </View>
       <View style={styles.buttonContainer}>
-        <PrimaryButton title={t('new_training.button_text')} />
+        <PrimaryButton title={t('new_training.button_text')} onPress={handleStartTrainingNow} />
       </View>
     </View>
   )

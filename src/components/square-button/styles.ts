@@ -15,8 +15,7 @@ export const styles = StyleSheet.create({
   },
   buttonText: {
     color: Colors.black,
-    fontWeight: "bold",
+    fontWeight: "500",
     fontSize: 14,
-    letterSpacing: 1,
   },
 });

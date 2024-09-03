@@ -3,12 +3,12 @@ import { Text, TouchableOpacity } from 'react-native';
 import { SquareButtonProps } from './types';
 import { styles } from './styles';
 
-export function SquareButton({ iconName, title, ...props }: Readonly<SquareButtonProps>) {
+export function SquareButton({ iconName, style, title, ...props }: Readonly<SquareButtonProps>) {
   return (
     <TouchableOpacity
       {...props}
       activeOpacity={0.8}
-      style={styles.container}
+      style={[styles.container, style]}
     >
       {title && (
         <Text style={styles.buttonText}>
