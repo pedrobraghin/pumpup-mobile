@@ -1,8 +1,9 @@
 export enum Routes {
-  searchExercise = 'search-exercise',
-  home = 'index',
-  profile = 'profile',
-  statistics = 'statistics',
-  createTraining = 'create-training',
-  training = 'training',
+  home = '(protected)',
+  searchExercise = '(protected)/search-exercise',
+  profile = '(protected)/profile',
+  statistics = '(protected)/statistics',
+  createTraining = '(protected)/create-training',
+  training = '(protected)/training',
+  login = '(public)',
 }
