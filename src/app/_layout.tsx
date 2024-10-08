@@ -4,22 +4,22 @@ import '../../i18n/scripts/init';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
+import { Slot } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { ClerkProvider, useAuth } from '@clerk/clerk-expo';
+import tokenCache from '@/utils/token-cache';
+import { ActivityIndicator } from 'react-native';
+import { useNavigation } from '@/hooks';
+import { Routes } from '@/@types/routes';
 
-export {
-  // Catch any errors thrown by the Layout component.
-  ErrorBoundary,
-} from 'expo-router';
+export { ErrorBoundary } from 'expo-router';
 
 export const unstable_settings = {
-  // Ensure that reloading on `/modal` keeps a back button present.
   initialRouteName: '/home',
 };
 
-// Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
@@ -28,7 +28,6 @@ export default function RootLayout() {
     ...FontAwesome.font,
   });
 
-  // Expo Router uses Error Boundaries to catch errors in the navigation tree.
   useEffect(() => {
     if (error) throw error;
   }, [error]);
@@ -49,22 +48,39 @@ export default function RootLayout() {
 function RootLayoutNav() {
   return (
     <GestureHandlerRootView>
-      <ThemeProvider value={DefaultTheme}>
-        <Stack
-          screenOptions={{
-            headerShown: false,
-            statusBarTranslucent: true,
-          }}
-        >
-          <Stack.Screen name="home" />
-          <Stack.Screen name="authentication" />
-          <Stack.Screen name="search-exercise" />
-          <Stack.Screen name="training" />
-          <Stack.Screen name="create-training" />
-          <Stack.Screen name="profile" />
-          <Stack.Screen name="statistics" />
-        </Stack>
-      </ThemeProvider>
+      <ClerkProvider
+        publishableKey={process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY}
+        tokenCache={tokenCache}
+      >
+        <ThemeProvider value={DefaultTheme}>
+          <InitialLayout />
+        </ThemeProvider>
+      </ClerkProvider>
     </GestureHandlerRootView>
+  );
+}
+
+function InitialLayout() {
+  const { isSignedIn, isLoaded } = useAuth();
+  const { navigate } = useNavigation();
+
+  useEffect(() => {
+    console.log(isLoaded, isSignedIn);
+
+    if (!isLoaded) return;
+
+    if (isSignedIn) {
+      navigate(Routes.home);
+    } else {
+      navigate(Routes.login);
+    }
+  }, [isLoaded, isSignedIn]);
+
+  return isLoaded ? (
+    <Slot />
+  ) : (
+    <ActivityIndicator
+      style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
+    />
   );
 }
