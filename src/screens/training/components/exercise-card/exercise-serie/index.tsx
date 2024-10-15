@@ -1,13 +1,28 @@
 import { Text, TouchableOpacity, View } from 'react-native';
-import { GestureDetector, Gesture, Directions } from 'react-native-gesture-handler'
-import Animated, { useAnimatedStyle, useSharedValue, withSpring, } from 'react-native-reanimated';
+import {
+  GestureDetector,
+  Gesture,
+  Directions,
+} from 'react-native-gesture-handler';
+import Animated, {
+  useAnimatedStyle,
+  useSharedValue,
+  withSpring,
+} from 'react-native-reanimated';
 
 import { SerieProps } from '../types';
-import { Selector } from '../../selector';
+import { Selector } from '../../../../../components/selector';
 import { clearInput } from '../../../utils';
 import { useCallback, useMemo, useState } from 'react';
 import { Checkbox, SimpleInput } from '@/components';
-import { deleteSerieContainer, exerciseSerieStyles, inputStyles, placeholderColor, rootContainer, selectorContainerStyles } from './styles';
+import {
+  deleteSerieContainer,
+  exerciseSerieStyles,
+  inputStyles,
+  placeholderColor,
+  rootContainer,
+  selectorContainerStyles,
+} from './styles';
 import { useTranslation } from 'react-i18next';
 import { getSelectorData } from './conts';
 
@@ -38,55 +53,65 @@ export function Serie({
   const [repetitions, setRepetitions] = useState(initialRepetitions.toString());
   const [finalized, setFinalized] = useState(initialFinalized);
 
-  const handleInputChange = useCallback((value: string, type: 'weight' | 'repetitions') => {
-    const cleanValue = clearInput(value);
+  const handleInputChange = useCallback(
+    (value: string, type: 'weight' | 'repetitions') => {
+      const cleanValue = clearInput(value);
 
-    if (type === 'weight') {
-      handleChangeWeight(cleanValue);
-      setWeight(cleanValue.toString());
-    } else {
-      handleChangeRepetitions(cleanValue);
-      setRepetitions(cleanValue.toString());
-    }
-  }, [handleChangeWeight, handleChangeRepetitions]);
+      if (type === 'weight') {
+        handleChangeWeight(cleanValue);
+        setWeight(cleanValue.toString());
+      } else {
+        handleChangeRepetitions(cleanValue);
+        setRepetitions(cleanValue.toString());
+      }
+    },
+    [handleChangeWeight, handleChangeRepetitions]
+  );
 
-  const handleCheckboxChange = useCallback((value: boolean) => {
-    setFinalized(value);
-    handleFinalize(value);
-  }, [handleFinalize]);
+  const handleCheckboxChange = useCallback(
+    (value: boolean) => {
+      setFinalized(value);
+      handleFinalize(value);
+    },
+    [handleFinalize]
+  );
 
-  const handleSelect = useCallback((type: string) => {
-    handleSetType(type);
-  }, [handleSetType]);
+  const handleSelect = useCallback(
+    (type: string) => {
+      handleSetType(type);
+    },
+    [handleSetType]
+  );
 
   const handleDelete = useCallback(() => {
     handleDeleteSerie(id);
   }, []);
 
-
-  const panGestureLeft = Gesture
-    .Fling()
+  const panGestureLeft = Gesture.Fling()
     .direction(Directions.LEFT)
     .onStart(() => {
-      position.value = withSpring(- START, { duration: 200 });
-    })
+      position.value = withSpring(-START, { duration: 200 });
+    });
 
-  const panGestureRight = Gesture
-    .Fling()
+  const panGestureRight = Gesture.Fling()
     .direction(Directions.RIGHT)
     .onStart(() => {
       position.value = withSpring(0, { duration: 200 });
-    })
-
+    });
 
   const animatedStyles = useAnimatedStyle(() => ({
-    transform: [{ translateX: position.value }]
+    transform: [{ translateX: position.value }],
   }));
 
   return (
-    <GestureDetector gesture={Gesture.Exclusive(panGestureLeft, panGestureRight)}>
+    <GestureDetector
+      gesture={Gesture.Exclusive(panGestureLeft, panGestureRight)}
+    >
       <View style={rootContainer.container}>
-        <TouchableOpacity style={deleteSerieContainer.container} onPress={handleDelete}>
+        <TouchableOpacity
+          style={deleteSerieContainer.container}
+          onPress={handleDelete}
+        >
           <Text style={deleteSerieContainer.text}>
             {t('exercise.serie.foreground_label')}
           </Text>
@@ -102,33 +127,28 @@ export function Serie({
             />
           </View>
 
-          <Text style={exerciseSerieStyles.text}>
-            {previousWeight}
-          </Text>
+          <Text style={exerciseSerieStyles.text}>{previousWeight}</Text>
 
           <SimpleInput
-            placeholder='0'
+            placeholder="0"
             value={weight}
             onChangeText={(text) => handleInputChange(text, 'weight')}
             style={inputStyles.container}
             placeholderTextColor={placeholderColor}
-            keyboardType='decimal-pad'
+            keyboardType="decimal-pad"
           />
 
           <SimpleInput
-            placeholder='0'
+            placeholder="0"
             value={repetitions}
             onChangeText={(text) => handleInputChange(text, 'repetitions')}
             style={inputStyles.container}
             placeholderTextColor={placeholderColor}
-            keyboardType='decimal-pad'
+            keyboardType="decimal-pad"
           />
 
           <View style={exerciseSerieStyles.checkBoxContainer}>
-            <Checkbox
-              onChangeValue={handleCheckboxChange}
-              value={finalized}
-            />
+            <Checkbox onChangeValue={handleCheckboxChange} value={finalized} />
           </View>
         </Animated.View>
       </View>
