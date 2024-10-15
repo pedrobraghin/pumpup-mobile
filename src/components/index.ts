@@ -12,3 +12,4 @@ export * from './exercise-timer';
 export * from './checkbox';
 export * from './simple-input';
 export * from './icons';
+export * from './language-selector';
