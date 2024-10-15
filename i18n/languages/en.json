@@ -1,1 +1,8 @@
-{}
+{
+  "login": {
+    "top_text": "Need help?",
+    "primary_button": "Sign in with Google",
+    "terms_text_1": "By continuing, you accept our ",
+    "terms_text_2": "terms and conditions."
+  }
+}

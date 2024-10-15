@@ -1,14 +1,24 @@
-import { Button, Text } from 'react-native';
+import { Alert, ImageBackground, Text, View } from 'react-native';
 import { useOAuth } from '@clerk/clerk-expo';
 import { useCallback, useEffect } from 'react';
 import * as WebBrowser from 'expo-web-browser';
-import { SafeScrollView } from '@/components';
+import { styles } from './styles';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { Selector } from '../training/components';
+import { languageSelectorData } from './data';
+import i18n from '../../../i18n/scripts/init';
+import Entypo from '@expo/vector-icons/Entypo';
+import Colors from '@/constants/Colors';
+import { useTranslation } from 'react-i18next';
+import { GoogleIcon, SafeScrollView } from '@/components';
+import { storeData } from '@/utils';
+import StorageKeys from '@/constants/storage-keys';
 
 WebBrowser.maybeCompleteAuthSession();
 
 export function AuthenticationScreen() {
   const googleOAuth = useOAuth({ strategy: 'oauth_google' });
-
+  const { t } = useTranslation('login');
   const onGoogleSignIn = useCallback(async () => {
     try {
       const flow = await googleOAuth.startOAuthFlow();
@@ -25,6 +35,11 @@ export function AuthenticationScreen() {
     } catch (e) {}
   }, []);
 
+  const changeLanguage = useCallback(async (language: string) => {
+    i18n.changeLanguage(language);
+    await storeData(StorageKeys.LANG, language);
+  }, []);
+
   useEffect(() => {
     WebBrowser.warmUpAsync();
 
@@ -34,11 +49,54 @@ export function AuthenticationScreen() {
   });
 
   return (
-    <SafeScrollView>
-      <Text>
-        Tela de cadastro/login
-        <Button onPress={onGoogleSignIn} title="Entrar com o google" />
-      </Text>
+    <SafeScrollView
+      scrollContainerStyle={{
+        paddingHorizontal: 0,
+        paddingTop: 0,
+        paddingBottom: 0,
+      }}
+      contentContainerStyle={{
+        paddingBottom: 0,
+      }}
+    >
+      <View style={styles.container}>
+        <ImageBackground
+          source={{ uri: process.env.EXPO_PUBLIC_LOGIN_IMAGE_URL }}
+          style={styles.imageContainer}
+          resizeMode="cover"
+        >
+          <TouchableOpacity
+            style={styles.helpContainer}
+            onPress={() => Alert.alert('Implementar tela de ajuda')}
+          >
+            <Text style={styles.helperText}>{t('top_text')}</Text>
+            <Entypo name="help-with-circle" size={16} color={Colors.white} />
+          </TouchableOpacity>
+          <View>
+            <TouchableOpacity onPress={onGoogleSignIn} style={styles.button}>
+              <GoogleIcon />
+              <Text style={styles.buttonText}>{t('primary_button')}</Text>
+              <View></View>
+            </TouchableOpacity>
+            <View style={styles.termsTextContainer}>
+              <Text style={styles.termsTextOne}>{t('terms_text_1')}</Text>
+              <TouchableOpacity
+                onPress={() => Alert.alert('Implementar tela dos termos')}
+              >
+                <Text style={styles.termsTextTwo}>{t('terms_text_2')}</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+          <View>
+            <Selector
+              data={languageSelectorData}
+              initalState={languageSelectorData[0]}
+              onSelect={changeLanguage}
+              withText
+            />
+          </View>
+        </ImageBackground>
+      </View>
     </SafeScrollView>
   );
 }

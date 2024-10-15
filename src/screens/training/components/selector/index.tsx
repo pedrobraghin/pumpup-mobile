@@ -1,11 +1,24 @@
-import { Modal, Text, TouchableOpacity, View, FlatList, TouchableWithoutFeedback, Animated } from 'react-native';
+import {
+  Modal,
+  Text,
+  TouchableOpacity,
+  View,
+  FlatList,
+  TouchableWithoutFeedback,
+  Animated,
+} from 'react-native';
 import { styles } from './styles';
 import React, { useCallback, useState } from 'react';
 import { SelectorData, SelectorProps } from './types';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import Colors from '@/constants/Colors';
 
-export function Selector({ onSelect, data, initalState }: Readonly<SelectorProps>) {
+export function Selector({
+  onSelect,
+  data,
+  initalState,
+  withText,
+}: Readonly<SelectorProps>) {
   const [modalVisible, setModalVisible] = useState(false);
   const [selected, setSelected] = useState(initalState);
   const [anim] = useState(new Animated.Value(0));
@@ -18,7 +31,6 @@ export function Selector({ onSelect, data, initalState }: Readonly<SelectorProps
     }).start();
   }, [modalVisible]);
 
-
   const handleSelect = useCallback((item: SelectorData) => {
     onSelect(item.value);
     setSelected(item);
@@ -29,26 +41,22 @@ export function Selector({ onSelect, data, initalState }: Readonly<SelectorProps
     setModalVisible(false);
   }, []);
 
-
   return (
     <View style={styles.container}>
       <TouchableOpacity
         style={styles.button}
         onPress={() => setModalVisible(true)}
       >
-        {selected?.icon}
-        <AntDesign
-          name="caretdown"
-          size={8}
-          color={Colors.white}
-        />
+        {selected?.smallIcon || selected?.icon}
+        {withText && <Text style={styles.text}>{selected?.text}</Text>}
+        <AntDesign name="caretdown" size={8} color={Colors.white} />
       </TouchableOpacity>
 
       <Modal
         transparent={true}
         visible={modalVisible}
         onRequestClose={handleCloseModal}
-        animationType='none'
+        animationType="none"
       >
         <TouchableWithoutFeedback onPress={handleCloseModal}>
           <Animated.View
@@ -58,8 +66,8 @@ export function Selector({ onSelect, data, initalState }: Readonly<SelectorProps
                 opacity: anim.interpolate({
                   inputRange: [0, 1],
                   outputRange: [0, 1],
-                })
-              }
+                }),
+              },
             ]}
           >
             <TouchableWithoutFeedback onPress={handleCloseModal}>
@@ -67,7 +75,9 @@ export function Selector({ onSelect, data, initalState }: Readonly<SelectorProps
                 <FlatList
                   data={data}
                   keyExtractor={(item) => item.value}
-                  ItemSeparatorComponent={() => <View style={styles.separator} />}
+                  ItemSeparatorComponent={() => (
+                    <View style={styles.separator} />
+                  )}
                   renderItem={({ item }) => (
                     <TouchableOpacity
                       style={styles.item}
@@ -83,6 +93,6 @@ export function Selector({ onSelect, data, initalState }: Readonly<SelectorProps
           </Animated.View>
         </TouchableWithoutFeedback>
       </Modal>
-    </View >
-  )
+    </View>
+  );
 }
