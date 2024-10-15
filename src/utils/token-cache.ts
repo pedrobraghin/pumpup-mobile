@@ -9,9 +9,10 @@ async function getToken(key: string) {
     return null;
   }
 }
+
 async function saveToken(key: string, value: string) {
   try {
-    return SecureStore.setItemAsync(key, value);
+    return await SecureStore.setItemAsync(key, value);
   } catch (err) {
     return;
   }
