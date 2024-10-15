@@ -1,14 +1,22 @@
-import { Button, Text } from 'react-native';
-import { SafeScrollView } from '@/components';
-import { useAuth } from '@clerk/clerk-expo';
+import { Image, Text, View } from 'react-native';
+import { SafeView } from '@/components';
+import { useUser } from '@clerk/clerk-expo';
+import { styles } from './styles';
+import { ProfileList } from './components';
 
 export function ProfileScreen() {
-  const { signOut } = useAuth();
+  const { user } = useUser();
+  const userProfilePic = user?.hasImage ? user.imageUrl : '';
 
   return (
-    <SafeScrollView>
-      <Text>Perfil</Text>
-      <Button onPress={() => signOut()} title="Sair" />
-    </SafeScrollView>
+    <SafeView safeContainerStyle={styles.scrollContainer}>
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <Text style={styles.headerText}>{user?.fullName}</Text>
+          <Image style={styles.image} source={{ uri: userProfilePic }} />
+        </View>
+        <ProfileList />
+      </View>
+    </SafeView>
   );
 }

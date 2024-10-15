@@ -1,4 +1,4 @@
-import { SelectorData } from '../training/components/selector/types';
+import { SelectorData } from '../../components/selector/types';
 import Flag from 'react-native-country-flag';
 
 export const languageSelectorData: SelectorData[] = [

@@ -4,15 +4,11 @@ import { useCallback, useEffect } from 'react';
 import * as WebBrowser from 'expo-web-browser';
 import { styles } from './styles';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { Selector } from '../training/components';
-import { languageSelectorData } from './data';
-import i18n from '../../../i18n/scripts/init';
+
 import Entypo from '@expo/vector-icons/Entypo';
 import Colors from '@/constants/Colors';
 import { useTranslation } from 'react-i18next';
-import { GoogleIcon, SafeScrollView } from '@/components';
-import { storeData } from '@/utils';
-import StorageKeys from '@/constants/storage-keys';
+import { GoogleIcon, LanguageSelector, SafeScrollView } from '@/components';
 
 WebBrowser.maybeCompleteAuthSession();
 
@@ -33,11 +29,6 @@ export function AuthenticationScreen() {
 
       await flow.setActive({ session: flow.createdSessionId });
     } catch (e) {}
-  }, []);
-
-  const changeLanguage = useCallback(async (language: string) => {
-    i18n.changeLanguage(language);
-    await storeData(StorageKeys.LANG, language);
   }, []);
 
   useEffect(() => {
@@ -88,12 +79,7 @@ export function AuthenticationScreen() {
             </View>
           </View>
           <View>
-            <Selector
-              data={languageSelectorData}
-              initalState={languageSelectorData[0]}
-              onSelect={changeLanguage}
-              withText
-            />
+            <LanguageSelector />
           </View>
         </ImageBackground>
       </View>
