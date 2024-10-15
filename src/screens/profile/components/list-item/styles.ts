@@ -2,26 +2,21 @@ import Colors from '@/constants/Colors';
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
-  scrollContainer: {
-    backgroundColor: Colors.darkWhite,
-    paddingTop: 16,
-  },
   container: {
-    flex: 1,
-    justifyContent: 'space-between',
-  },
-  image: {
-    borderRadius: 50,
-    width: 38,
-    height: 38,
-  },
-  header: {
+    paddingVertical: 20,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
   },
-  headerText: {
+  text: {
+    color: Colors.black,
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: 'semibold',
+  },
+  leftContainer: {
+    flexDirection: 'row',
+    gap: 16,
+    alignItems: 'center',
+    flexGrow: 1,
   },
 });
