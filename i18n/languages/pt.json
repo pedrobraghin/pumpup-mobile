@@ -85,5 +85,34 @@
     "primary_button": "Entrar com o Google",
     "terms_text_1": "Ao continuar, você aceita nossos ",
     "terms_text_2": "termos e condições."
+  },
+  "change_language": {
+    "snackbar_title": "Você alterou o idioma para {{lang}}"
+  },
+  "profile": {
+    "section_1": {
+      "title": "Seus dados",
+      "row_1": "Atualizar perfil",
+      "row_2": "Dados do usuário"
+    },
+    "section_2": {
+      "title": "Preferências",
+      "row_1": "Idioma",
+      "row_2": "Unidades de medida"
+    },
+    "section_3": {
+      "title": "Nossas redes",
+      "row_1": "Instagram da Pumpup",
+      "row_2": "Site da Pumpup"
+    },
+    "section_4": {
+      "title": "Apoio e sobre",
+      "row_1": "Termos e políticas",
+      "row_2": "Reportar um bug"
+    },
+    "section_5": {
+      "title": "Sessão",
+      "row_1": "Sair"
+    }
   }
 }

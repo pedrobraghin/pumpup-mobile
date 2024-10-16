@@ -1,8 +1,118 @@
 {
+  "stepper_bar": {
+    "right_button_title": "Next",
+    "left_button_title": "Previous"
+  },
+  "welcome": {},
+  "tab_bar": {
+    "icon_1_label": "Home",
+    "icon_2_label": "Statistics",
+    "icon_3_label": "Profile"
+  },
+  "home": {
+    "header_description": "Hello {{username}}, welcome to your Dashboard!",
+    "header_title": "Dashboard",
+    "tip_1": "You don't have any workouts yet",
+    "tip_2": "Click the button below to add a new workout",
+    "new_training": {
+      "label": "Add new workout",
+      "button_text": "Start a workout now"
+    },
+    "label_1": "Today's workout",
+    "label_2": "All workouts",
+    "start": "Start",
+    "exercises": "{{count}} exercises - ",
+    "tomorrow": "Tomorrow",
+    "today": "Today",
+    "monday": "Monday",
+    "tuesday": "Tuesday",
+    "wednesday": "Wednesday",
+    "thursday": "Thursday",
+    "friday": "Friday",
+    "saturday": "Saturday",
+    "sunday": "Sunday"
+  },
+  "search_exercise": {
+    "placeholder": "Search for an exercise",
+    "continue": "Continue"
+  },
+  "create_training": {
+    "placeholder": "e.g.: chest and triceps workout",
+    "page_title": "New workout",
+    "input_label": "Name",
+    "weekday": "Weekday",
+    "monday": "Mon.",
+    "tuesday": "Tue.",
+    "wednesday": "Wed.",
+    "thursday": "Thu.",
+    "friday": "Fri.",
+    "saturday": "Sat.",
+    "sunday": "Sun.",
+    "primary_button": "Continue",
+    "input_error_message": "This field is required",
+    "weekday_selector_error_message": "You need to select a weekday"
+  },
+  "training": {
+    "exercise": {
+      "header": {
+        "button_text": "Series"
+      },
+      "serie_header": {
+        "col_1": "Series",
+        "col_2": "Type",
+        "col_3": "Prev. (Kg)",
+        "col_4": "Weight (Kg)",
+        "col_5": "Reps.",
+        "col_6": "Finish"
+      },
+      "types": {
+        "type_1": "Warm-up",
+        "type_2": "Work",
+        "type_3": "Drop set",
+        "type_4": "Failure",
+        "type_5": "Others"
+      },
+      "serie": {
+        "foreground_label": "Delete"
+      }
+    },
+    "timer": {
+      "label": "Rest time: {{time}}"
+    }
+  },
   "login": {
     "top_text": "Need help?",
     "primary_button": "Sign in with Google",
     "terms_text_1": "By continuing, you accept our ",
     "terms_text_2": "terms and conditions."
+  },
+  "change_language": {
+    "snackbar_title": "You changed the language to {{lang}}"
+  },
+  "profile": {
+    "section_1": {
+      "title": "Your data",
+      "row_1": "Update profile",
+      "row_2": "User data"
+    },
+    "section_2": {
+      "title": "Preferences",
+      "row_1": "Language",
+      "row_2": "Units of measure"
+    },
+    "section_3": {
+      "title": "Our networks",
+      "row_1": "Pumpup Instagram",
+      "row_2": "Pumpup Website"
+    },
+    "section_4": {
+      "title": "Support and about",
+      "row_1": "Terms and policies",
+      "row_2": "Report a bug"
+    },
+    "section_5": {
+      "title": "Session",
+      "row_1": "Logout"
+    }
   }
 }
