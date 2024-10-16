@@ -8,12 +8,13 @@ export default function ProtectedLayout() {
         statusBarTranslucent: true,
       }}
     >
-      <Stack.Screen name="index" />
-      <Stack.Screen name="search-exercise" />
-      <Stack.Screen name="training" />
+      <Stack.Screen name="change-language" />
       <Stack.Screen name="create-training" />
+      <Stack.Screen name="index" />
       <Stack.Screen name="profile" />
+      <Stack.Screen name="search-exercise" />
       <Stack.Screen name="statistics" />
+      <Stack.Screen name="training" />
     </Stack>
   );
 }

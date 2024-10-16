@@ -3,11 +3,14 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   container: {
-    paddingTop: 20,
+    backgroundColor: Colors.darkWhite,
+    paddingTop: 32,
+  },
+  contentContainer: {
+    gap: 10,
   },
   text: {
-    color: Colors.black,
-    fontSize: 13,
-    fontWeight: 'bold',
+    fontSize: 18,
+    fontWeight: '400',
   },
 });
