@@ -7,7 +7,12 @@ export function useNavigation() {
     router.push(path);
   }, []);
 
+  const back = useCallback(() => {
+    router.back();
+  }, []);
+
   return {
     navigate,
+    back,
   };
 }
