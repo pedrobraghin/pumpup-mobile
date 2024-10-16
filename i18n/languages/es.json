@@ -1,1 +1,118 @@
-{}
+{
+  "stepper_bar": {
+    "right_button_title": "Siguiente",
+    "left_button_title": "Anterior"
+  },
+  "welcome": {},
+  "tab_bar": {
+    "icon_1_label": "Inicio",
+    "icon_2_label": "Estadísticas",
+    "icon_3_label": "Perfil"
+  },
+  "home": {
+    "header_description": "Hola {{username}}, ¡bienvenido a tu Dashboard!",
+    "header_title": "Dashboard",
+    "tip_1": "Aún no tienes ningún entrenamiento",
+    "tip_2": "Haz clic en el botón de abajo para agregar un nuevo entrenamiento",
+    "new_training": {
+      "label": "Agregar nuevo entrenamiento",
+      "button_text": "Iniciar un entrenamiento ahora"
+    },
+    "label_1": "Entrenamiento de hoy",
+    "label_2": "Todos los entrenamientos",
+    "start": "Comenzar",
+    "exercises": "{{count}} ejercicios - ",
+    "tomorrow": "Mañana",
+    "today": "Hoy",
+    "monday": "Lunes",
+    "tuesday": "Martes",
+    "wednesday": "Miércoles",
+    "thursday": "Jueves",
+    "friday": "Viernes",
+    "saturday": "Sábado",
+    "sunday": "Domingo"
+  },
+  "search_exercise": {
+    "placeholder": "Buscar un ejercicio",
+    "continue": "Continuar"
+  },
+  "create_training": {
+    "placeholder": "ej.: entrenamiento de pecho y tríceps",
+    "page_title": "Nuevo entrenamiento",
+    "input_label": "Nombre",
+    "weekday": "Día de la semana",
+    "monday": "Lun.",
+    "tuesday": "Mar.",
+    "wednesday": "Mié.",
+    "thursday": "Jue.",
+    "friday": "Vie.",
+    "saturday": "Sáb.",
+    "sunday": "Dom.",
+    "primary_button": "Continuar",
+    "input_error_message": "Este campo es obligatorio",
+    "weekday_selector_error_message": "Es necesario seleccionar un día de la semana"
+  },
+  "training": {
+    "exercise": {
+      "header": {
+        "button_text": "Serie"
+      },
+      "serie_header": {
+        "col_1": "Serie",
+        "col_2": "Tipo",
+        "col_3": "Ant. (Kg)",
+        "col_4": "Peso (Kg)",
+        "col_5": "Reps.",
+        "col_6": "Finalizar"
+      },
+      "types": {
+        "type_1": "Calentamiento",
+        "type_2": "Trabajo",
+        "type_3": "Drop set",
+        "type_4": "Fallo",
+        "type_5": "Otros"
+      },
+      "serie": {
+        "foreground_label": "Eliminar"
+      }
+    },
+    "timer": {
+      "label": "Tiempo de descanso: {{time}}"
+    }
+  },
+  "login": {
+    "top_text": "¿Necesitas ayuda?",
+    "primary_button": "Iniciar sesión con Google",
+    "terms_text_1": "Al continuar, aceptas nuestros ",
+    "terms_text_2": "términos y condiciones."
+  },
+  "change_language": {
+    "snackbar_title": "Has cambiado el idioma a {{lang}}"
+  },
+  "profile": {
+    "section_1": {
+      "title": "Tus datos",
+      "row_1": "Actualizar perfil",
+      "row_2": "Datos del usuario"
+    },
+    "section_2": {
+      "title": "Preferencias",
+      "row_1": "Idioma",
+      "row_2": "Unidades de medida"
+    },
+    "section_3": {
+      "title": "Nuestras redes",
+      "row_1": "Instagram de Pumpup",
+      "row_2": "Sitio web de Pumpup"
+    },
+    "section_4": {
+      "title": "Soporte y sobre",
+      "row_1": "Términos y políticas",
+      "row_2": "Reportar un error"
+    },
+    "section_5": {
+      "title": "Sesión",
+      "row_1": "Cerrar sesión"
+    }
+  }
+}

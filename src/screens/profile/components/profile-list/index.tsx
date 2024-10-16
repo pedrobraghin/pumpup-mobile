@@ -1,29 +1,31 @@
 import React from 'react';
-import { Alert, SectionList } from 'react-native';
-import { ListItem } from '../list-item';
-import { SectionHeader } from '../section-header';
-import { ListItemSeparator } from '../list-item-separador';
-import { ListItemProps } from '../list-item/types';
+import { SectionList } from 'react-native';
+import { SectionHeader, ListItemSeparator, ListItem } from '@/components';
+import { ListItemProps } from '@/components/list-item/types';
 import Entypo from '@expo/vector-icons/Entypo';
 import Colors from '@/constants/Colors';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import AntDesign from '@expo/vector-icons/AntDesign';
+import { useProfileListHandlers } from '../../hooks';
+import { useTranslation } from 'react-i18next';
 
-// const { signOut } = useAuth();
 export function ProfileList() {
+  const { t } = useTranslation('profile');
   const iconSize = 20;
   const iconColor = Colors.black;
+
+  const handlers = useProfileListHandlers();
 
   return (
     <SectionList<ListItemProps>
       sections={[
         {
-          title: 'Seus dados',
+          title: t('section_1.title'),
           data: [
             {
-              title: 'Atualizar perfil',
-              onPress: () => Alert.alert('Atualizar perfil'),
+              title: t('section_1.row_1'),
+              onPress: handlers.handleUpdateProfile,
               leftIcon: (
                 <MaterialCommunityIcons
                   name="account-edit"
@@ -40,8 +42,8 @@ export function ProfileList() {
               ),
             },
             {
-              title: 'Dados do usuário',
-              onPress: () => Alert.alert('Dados do usuário'),
+              title: t('section_1.row_2'),
+              onPress: handlers.handleUserData,
               leftIcon: (
                 <Entypo name="database" size={iconSize} color={iconColor} />
               ),
@@ -49,11 +51,11 @@ export function ProfileList() {
           ],
         },
         {
-          title: 'Preferências',
+          title: t('section_2.title'),
           data: [
             {
-              title: 'Idioma',
-              onPress: () => Alert.alert('Idioma'),
+              title: t('section_2.row_1'),
+              onPress: handlers.handleChangeLanguage,
               rightIcon: (
                 <Entypo
                   name="chevron-right"
@@ -66,8 +68,8 @@ export function ProfileList() {
               ),
             },
             {
-              title: 'Unidades de medida',
-              onPress: () => Alert.alert('Unidades de medida'),
+              title: t('section_2.row_2'),
+              onPress: handlers.handleChangeUnitsOfMeasurement,
               rightIcon: (
                 <Entypo
                   name="chevron-right"
@@ -82,18 +84,18 @@ export function ProfileList() {
           ],
         },
         {
-          title: 'Nossas redes',
+          title: t('section_3.title'),
           data: [
             {
-              title: 'Instagram da Pumpup',
-              onPress: () => Alert.alert('Instagram da Pumpup'),
+              title: t('section_3.row_1'),
+              onPress: handlers.handleOpenInstagram,
               leftIcon: (
                 <AntDesign name="instagram" size={iconSize} color={iconColor} />
               ),
             },
             {
-              title: 'Site da Pumpup',
-              onPress: () => Alert.alert('Site da Pumpup'),
+              title: t('section_3.row_2'),
+              onPress: handlers.handleOpenWebsite,
               leftIcon: (
                 <MaterialCommunityIcons
                   name="web"
@@ -105,28 +107,28 @@ export function ProfileList() {
           ],
         },
         {
-          title: 'Apoio e sobre',
+          title: t('section_4.title'),
           data: [
             {
-              title: 'Termos e políticas',
-              onPress: () => Alert.alert('Termos e políticas'),
+              title: t('section_4.row_1'),
+              onPress: handlers.handleOpenTermsNPolitics,
               leftIcon: (
                 <AntDesign name="filetext1" size={iconSize} color={iconColor} />
               ),
             },
             {
-              title: 'Reportar um bug',
-              onPress: () => Alert.alert('Reportar um bug'),
+              title: t('section_4.row_2'),
+              onPress: handlers.handleReportBug,
               leftIcon: <Entypo name="bug" size={iconSize} color={iconColor} />,
             },
           ],
         },
         {
-          title: 'Sessão',
+          title: t('section_5.title'),
           data: [
             {
-              title: 'Sair',
-              onPress: () => Alert.alert('Sair'),
+              title: t('section_5.row_1'),
+              onPress: handlers.handleLogout,
               leftIcon: (
                 <MaterialIcons
                   name="logout"

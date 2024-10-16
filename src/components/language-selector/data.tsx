@@ -16,4 +16,11 @@ export const languageSelectorData: SelectorData[] = [
     icon: <Flag isoCode="us" size={24} />,
     smallIcon: <Flag isoCode="us" size={16} />,
   },
+  {
+    label: 'Español',
+    value: 'es',
+    text: 'ES',
+    icon: <Flag isoCode="es" size={24} />,
+    smallIcon: <Flag isoCode="es" size={16} />,
+  },
 ];

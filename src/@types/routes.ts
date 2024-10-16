@@ -5,5 +5,6 @@ export enum Routes {
   statistics = '(protected)/statistics',
   createTraining = '(protected)/create-training',
   training = '(protected)/training',
+  changeLanguage = '(protected)/change-language',
   login = '(public)',
 }
