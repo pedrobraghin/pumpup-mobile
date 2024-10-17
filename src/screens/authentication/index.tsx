@@ -1,5 +1,5 @@
 import { Alert, ImageBackground, Text, View } from 'react-native';
-import { useOAuth } from '@clerk/clerk-expo';
+import { useAuth, useOAuth } from '@clerk/clerk-expo';
 import { useCallback, useEffect } from 'react';
 import * as WebBrowser from 'expo-web-browser';
 import { styles } from './styles';
@@ -9,12 +9,17 @@ import Entypo from '@expo/vector-icons/Entypo';
 import Colors from '@/constants/Colors';
 import { useTranslation } from 'react-i18next';
 import { GoogleIcon, LanguageSelector, SafeScrollView } from '@/components';
+import { Routes } from '@/@types/routes';
+import { useNavigation } from '@/hooks';
 
 WebBrowser.maybeCompleteAuthSession();
 
 export function AuthenticationScreen() {
   const googleOAuth = useOAuth({ strategy: 'oauth_google' });
   const { t } = useTranslation('login');
+  const { isSignedIn, isLoaded } = useAuth();
+  const { navigate } = useNavigation();
+
   const onGoogleSignIn = useCallback(async () => {
     try {
       const flow = await googleOAuth.startOAuthFlow();
@@ -30,6 +35,14 @@ export function AuthenticationScreen() {
       await flow.setActive({ session: flow.createdSessionId });
     } catch (e) {}
   }, []);
+
+  useEffect(() => {
+    if (!isLoaded) return;
+
+    if (isSignedIn) {
+      navigate(Routes.home);
+    }
+  }, [isLoaded, isSignedIn]);
 
   useEffect(() => {
     WebBrowser.warmUpAsync();

@@ -114,5 +114,8 @@
       "title": "Session",
       "row_1": "Logout"
     }
+  },
+  "connection_snackbar": {
+    "text": "No internet connection. Connect to a Wi-Fi network or enable mobile data to continue."
   }
 }

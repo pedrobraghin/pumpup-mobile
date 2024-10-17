@@ -114,5 +114,8 @@
       "title": "Sesión",
       "row_1": "Cerrar sesión"
     }
+  },
+  "connection_snackbar": {
+    "text": "Sin conexión a internet. Conéctate a una red Wi-Fi o activa los datos móviles para continuar."
   }
 }

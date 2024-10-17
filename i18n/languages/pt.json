@@ -114,5 +114,8 @@
       "title": "Sessão",
       "row_1": "Sair"
     }
+  },
+  "connection_snackbar": {
+    "text": "Sem conexão com a internet. Conecte-se a uma rede Wi-Fi ou ative os dados móveis para continuar."
   }
 }

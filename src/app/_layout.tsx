@@ -16,6 +16,8 @@ import { retriveData } from '@/utils';
 import StorageKeys from '@/constants/storage-keys';
 import LangCodes from '@/constants/lang-codes';
 import i18n from '../../i18n/scripts/init';
+import { ConnectionProvider } from '@/providers';
+import { PaperProvider } from 'react-native-paper';
 export { ErrorBoundary } from 'expo-router';
 
 export const unstable_settings = {
@@ -67,7 +69,10 @@ function RootLayoutNav() {
         tokenCache={tokenCache}
       >
         <ThemeProvider value={DefaultTheme}>
-          <InitialLayout />
+          <PaperProvider>
+            <InitialLayout />
+            <ConnectionProvider />
+          </PaperProvider>
         </ThemeProvider>
       </ClerkProvider>
     </GestureHandlerRootView>
