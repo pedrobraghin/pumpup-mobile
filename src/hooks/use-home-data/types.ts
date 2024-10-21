@@ -1,6 +1,4 @@
-export type UserData = {
-  name: string;
-};
+import {UserResponseData} from "@/hooks/use-user/types";
 
 export type Train = {
   name: string;
@@ -8,7 +6,7 @@ export type Train = {
 };
 
 export type FetchHomeData = {
-  user: UserData;
+  user: UserResponseData;
   trains: Array<Train>;
 };
 
